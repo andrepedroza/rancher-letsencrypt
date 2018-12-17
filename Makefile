@@ -7,7 +7,7 @@
 PROJECT := rancher-letsencrypt
 PLATFORMS := linux
 ARCH := amd64
-DOCKER_IMAGE := registry.vxcontrol.com:8443/$(PROJECT)
+DOCKER_IMAGE := andreppc/$(PROJECT)
 
 VERSION := $(shell cat VERSION)
 SHA := $(shell git rev-parse --short HEAD)
@@ -38,7 +38,7 @@ test:
 	go test -v ./...
 
 docker:
-	docker build -t timw/rancher-letsencrypt -f Dockerfile.local .
+	docker build -t andreppc/rancher-letsencrypt -f Dockerfile.local .
 
 release:
 	git tag -f `cat VERSION`
